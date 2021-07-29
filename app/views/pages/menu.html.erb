@@ -14,13 +14,6 @@
         <div id="bulletin-container">
           <div id="bulletin-left" class="bulletin-half" style="background: url(<%= image_url 'white-stripes.svg' %>); background-color: #f1f1f1;">
 
-            <div id="post-title">
-              <div id="post-title-container"
-                   class="container">
-                <h1>COOKIE MENU</h1>
-              </div>
-            </div>
-
             <div id="post-container">
               <%- if flash[:success].present? %>
               <div id="success-update" class="post">
@@ -28,9 +21,7 @@
               </div>
               <% end %>
 
-              <
-
-              <% @chips.each_with_index do |chip, index| %>
+              <% @og.each_with_index do |chip, index| %>
               <div id="post-<%= index+1 %>" class="post">
                 <div class="content">
                   <%= form_for(:item, :url => stripe_add_path) do |f| %>
