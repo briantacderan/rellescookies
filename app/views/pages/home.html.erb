@@ -1,0 +1,100 @@
+<div id="main-content">
+  <div id="banner-section">
+    <div id="banner">
+      <div class="space" id="first"></div>
+      <div id="banner-left" class="container">
+        <%= image_tag "cookie_3.jpg", class: "desktop" %>
+        <%= image_tag "misc-choc.png", id: "parallaxOne", class: "mobile" %>
+      </div>
+      <div class="space"></div>
+    </div>
+    <div id="banner-right">
+      <div class="container">
+        <div class="content">
+          <h1>fresh cookies</h1>
+          <h3>MADE TO ORDER</h3>
+          <p>every cookie baked with <strong>hella love</strong></p>
+          <%= link_to "MENU LIST", menu_path, id: "banner-button", class: "button" %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="bulletin-section">
+    <div id="bulletin-container">
+      <div id="bulletin-left" class="bulletin-half" style="background: url(<%= image_url 'white-stripes.svg' %>); background-color: #f1f1f1;">
+
+        <div id="post-title">
+          <div id="post-title-container" class="container">
+            <h1>COOKIE MENU</h1>
+          </div>
+        </div>
+
+        <div id="post-container">
+          <%- if flash[:success].present? %>
+          <div id="success-update" class="post">
+            <p><%= flash[:success] %></p>
+          </div>
+          <% end %>
+          <% @chips.each_with_index do |chip, index| %>
+          <div id="post-<%= index+1 %>" class="post">
+            <div class="content">
+              <%= form_for(:item, :url => stripe_add_path) do |f| %>
+                <div class="field hidden-field">
+                  <%= f.hidden_field :name, value: chip.name %>
+                </div>
+                <div class="field hidden-field">
+                  <%= f.hidden_field :menu_id, value: chip.menu_id %>
+                </div>
+                <div class="field hidden-field">
+                  <%= f.hidden_field :image, value: chip.image %>
+                </div>
+                <h4><%= chip.name %></h4>
+                <p><%= chip.description %></p>
+                <div class="quantity-submit">
+                  <div id="quantity-counter-<%= index+1 %>" class="field quantity-counter">
+                    <%= f.label :quantity, "QUANTITY" %>
+                    <%= f.number_field :quantity, in: 1..12, step: 1, autocomplete: 1 %>
+                  </div>
+                  <div id="submit-<%= index+1 %>" class="actions">
+                    <%= f.submit "ADD TO CART" %>
+                  </div>
+                </div>
+
+              <% end %>
+            </div>
+          </div>
+          <% end %>
+        </div>
+
+      </div>
+
+      <div id="bulletin-right">
+        <div class="parallax">
+          <%= image_tag "cookie_3.jpg", id: "parallaxTwo", class: "bull-right" %>
+          <%= image_tag "pink-chip.png", id: "parallaxThree", class: "bull-right" %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="newsletter-section">
+    <div class="container" style="background-image: url(<%= image_url 'white-stripes.svg' %>);">
+      <div class="content">
+        <h1>subscribe to the <strong>cookies</strong> club</h1>
+        <span>Get on our member list and never miss out on new flavors and promotions or click on the <strong>HEART</strong>at the top of the page and follow us on @instagram</span>
+      </div>
+      <div id="subscribe">
+        <form>
+          <input type="text"
+                 class="form-control"
+                 placeholder="Email address"
+                 aria-label="Email address" />
+          <span>
+            <button type="button">SUBSCRIBE</button>
+          </span>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

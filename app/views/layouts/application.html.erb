@@ -1,16 +1,102 @@
 <!DOCTYPE html>
 <html>
+
   <head>
-    <title>Rellescookies</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Cookies</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0" />
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'menu', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+
+    <header>
+      <div class="content">
+
+        <%= link_to root_path, class: "desktop" do %>
+          <%= image_tag "logo-background.svg", id: "background", class: "icon" %>
+          <h1>cookies</h1>
+          <%= image_tag "logo-name.svg", id: "name", class: "icon" %>
+        <% end %>
+
+        <nav class="desktop">
+          <ul>
+            <%- if current_user %>
+            <li class="session-user">
+              <%= link_to "LOGOUT", destroy_session_path(current_user), method: :delete, class: "logout" %>
+              <p><%= current_user.email %><p>
+            </li>
+            <% end %>
+            <li><%= link_to "MENU", menu_path %></li>
+            <li><%= link_to "ABOUT", about_path %></li>
+            <li><%= link_to "CART", stripe_cart_path %></li>
+            <li>
+              <%= link_to "https://www.instagram.com/cookiesbyrelle/" do %>
+                <%= image_tag "heart-solid.svg", id: "heart", class: "icon" %>
+              <% end %>
+            </li>
+          </ul>
+        </nav>
+
+        <nav class="mobile">
+          <ul>
+            <li class="head-status">
+              <p class="notice"><%= notice %></p>
+              <p class="alert"><%= alert %></p>
+            </li>
+            <li>
+              <%- if current_user %>
+              <%= link_to destroy_session_path(current_user), method: :delete, class: "logout" do %>
+                <%= image_tag "logout.svg", id: "logout", class: "icon logout" %>
+              <% end %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to "https://www.instagram.com/cookiesbyrelle/" do %>
+                <%= image_tag "heart-solid.svg", id: "heart", class: "icon" %>
+              <% end %>
+            </li>
+            <div class="dropdown">
+              <li>
+                <a>
+                  <%= image_tag "bars-solid.svg", id: "bars", class: "icon dropbtn" %>
+                </a>
+              </li>
+              <div class="dropdown-content">
+                <li><%= link_to "MENU", menu_path %></li>
+                <li><%= link_to "ABOUT", about_path %></li>
+                <li><%= link_to "CART", stripe_cart_path %></li>
+              </div>
+            </div>
+          </ul>
+        </nav>
+
+      </div>
+    </header>
+
     <%= yield %>
+
+    <div id="spacing" class="container">
+    </div>
+
+    <footer>
+      <div class="content">
+        <span class="copyright">&copy; 2021 Cookies by Relle</span><a href="https://the-tacderan-code.herokuapp.com"><strong>BRIAN TACDERAN</strong></a>
+        <nav class="desktop">
+          <ul>
+            <li><a href="#">Terms</a></li>
+            <li><a href="#">Privacy</a></li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+
+    <script src="//cdn.jsdelivr.net/jquery/2.2.0/jquery.min.js"></script>
+    <script src="//cdn.jsdelivr.net/jquery.sidr/2.2.1/jquery.sidr.min.js"></script>
+
   </body>
 </html>
