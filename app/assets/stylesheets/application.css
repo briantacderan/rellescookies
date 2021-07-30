@@ -1,12 +1,12 @@
 @font-face {
   font-family: 'Phosphate';
-  src: font-url('Phosphate-Inline.ttf');
+  src: url('Phosphate-Inline.ttf', fonts) format('truetype');
   font-style: inline;
 }
 
 @font-face {
   font-family: 'Phosphate';
-  src: font-url('Phosphate-Solid.ttf');
+  src: url('Phosphate-Solid.ttf', fonts) format('truetype');
   font-style: solid;
 }
 
