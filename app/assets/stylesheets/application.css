@@ -192,7 +192,7 @@ header .icon#heart {
 
   header nav a {
     font-size: 1rem;
-    padding: 0.5rem;
+    padding: 0.5rem 0.5rem 0.3rem;
   }
 
   header .icon#heart {
@@ -281,18 +281,14 @@ header .icon#heart {
 
   .dropdown-content a:hover {
     color: #c27c7c;
+    background-color: #1F1C1C;
   }
 
-  header nav.mobile li a:hover {
-    background-color: #1f1c1c;
+  header nav.mobile li a#heart:hover,
+  header nav.mobile li a#logout:hover {
     color: #BEE04C;
-    border-radius: 0;
-  }
-
-  header nav.mobile li a#heart:hover {
-    background-color: #BEE04C;
-    color: black;
-    border-radius: 200px;
+    border-radius: 50%;
+    height: 2.25rem;
     z-index: 2;
   }
 
@@ -301,7 +297,7 @@ header .icon#heart {
     border-bottom: solid 1px white;
   }
 
-  .dropdown .dropdown-content:hover {
+  header nav.mobile .dropdown .dropdown-content:hover {
     background-color: #1f1c1c;
     color: #BEE04C;
     border-radius: 0;
