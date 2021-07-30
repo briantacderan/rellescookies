@@ -45,10 +45,6 @@
 
         <nav class="mobile">
           <ul>
-            <li class="head-status">
-              <p class="notice"><%= notice %></p>
-              <p class="alert"><%= alert %></p>
-            </li>
             <li>
               <%- if current_user %>
               <%= link_to destroy_session_path(current_user), method: :delete, class: "logout" do %>

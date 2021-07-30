@@ -161,7 +161,7 @@ header .icon#name {
   height: 155px;
   position: relative;
   right: 10px;
-  bottom: 8px;
+  bottom: 1rem;
   filter: invert(30%) sepia(49%) saturate(1812%) hue-rotate(314deg) brightness(86%) contrast(92%);
 }
 

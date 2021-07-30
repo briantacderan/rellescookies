@@ -12,6 +12,9 @@
     </article>
 
     <div id="cart-view-content" class="checkouts-content">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+
       <div id="cart-view">
 
         <div id="cart-details">
@@ -30,7 +33,7 @@
           <%= link_to "Checkout", stripe_finalize_path %>
           <%= link_to "Delete all items", stripe_restart_path %>
         </form>
-          
+
       </div>
     </div>
 
