@@ -1,36 +1,55 @@
 /* Header */
 @media only screen and (max-width: 518px) and (max-height: 1000px) {
   header {
-    height: 3.5rem;
-    border-bottom: 3px solid white;
+    height: 2.5rem;
+    border-bottom: 3px solid #1F1C1C;
     box-shadow: 0 1px 1px rgba(0,0,0,0.11),
                 0 2px 2px rgba(0,0,0,0.11),
                 0 4px 4px rgba(0,0,0,0.11),
                 0 6px 8px rgba(0,0,0,0.11),
                 0 8px 16px rgba(0,0,0,0.11);
-    background-color: #1f1c1c;
+    background-color: #F1F1F1;
   }
 
   header h1 {
-    color: white;
+    color: #BEE04C;
+    font-size: 1.85rem;
+    letter-spacing: 0;
+    bottom: -1rem;
+    left: 2.5rem;
+    z-index: 2;
+    opacity: 1;
+    text-shadow: -1px 1px 1px rgba(0,0,0,0.71),
+                -2px 2px 2px rgba(0,0,0,0.71),
+                -4px 4px 4px rgba(0,0,0,0.71);
   }
 
   header nav.mobile {
-    margin-top: 0.5rem;
+    margin-top: 0;
   }
 
   header .icon#background {
     visibility: visible;
-    height: 50px;
+    height: 60px;
     z-index: 2;
   }
 
+  header .icon#name {
+    display: none;
+  }
+
+  header .icon#logout,
+  header .icon#bars {
+    filter: invert(3%) sepia(11%) saturate(630%) hue-rotate(317deg) brightness(99%) contrast(82%);
+  }
+
   footer {
-    border-top: 3px solid white;
+    border-top: 3px solid #1F1C1C;
+    background-color: #F1F1F1;
   }
 
   footer span {
-    color: white;
+    color: #1F1C1C;
   }
 }
 
@@ -44,7 +63,7 @@ div.devise-page {
   max-height: 100vh;
   height: 100vh;
   width: 100%;
-  padding: 10% 0 20%;
+  padding: 0 0 30% 0;
   background-color: darkslategray;
   color: gray;
   text-shadow: -1px 1px 1px rgba(0,0,0,0.11),
@@ -90,6 +109,10 @@ div.devise-page-title {
 div.devise-page-title h1 {
   color: #BEE04C;
   text-align: center;
+  opacity: 0.8;
+  text-shadow: -1px 1px 1px rgba(0,0,0,0.71),
+              -2px 2px 2px rgba(0,0,0,0.71),
+              -4px 4px 4px rgba(0,0,0,0.71);
 }
 
 div.devise-page-title h1,
@@ -98,7 +121,7 @@ div.devise-page-title h2 {
 }
 
 div.devise-page-title h2 {
-  color: white;
+  color: gray;
   font-size: 2rem;
   margin-bottom: 2rem;
 }
@@ -131,6 +154,11 @@ div.devise-page form input {
 
 div.devise-page form .actions input {
   margin: 1.25rem 0;
+  color: #ab0345;
+  font-family: 'phosphatesolid', sans-serif;
+  font-size: 2rem;
+  line-height: 1rem;
+  border: 7px solid #1F1C1C;
 }
 
 @media only screen and (max-width: 730px) {

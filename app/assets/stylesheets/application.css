@@ -134,14 +134,6 @@ header li.session-user a {
 }
 
 header a {
-  letter-spacing: 0.1rem;
-  font-weight: 700;
-  font-size: 1.1rem;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  color: #f1f1f1;
-  padding: 0.7rem;
   transition-property: color;
 }
 
@@ -211,7 +203,7 @@ header .icon#heart {
     height: 1.9rem;
     padding-bottom: 0.6rem;
     filter: invert(99%) sepia(83%) saturate(90%) hue-rotate(192deg) brightness(110%) contrast(89%);
-    margin-right: 0.5rem;
+    margin-right: 0.3rem;
   }
 
   header nav.desktop {
@@ -328,7 +320,18 @@ header .icon#heart {
   }
 
   header h1 {
-    color: darkslategray;
+    width: 40%;
+    color: #1F1C1C;
+    font-size: 1.85rem;
+    opacity: 0.8;
+    bottom: -5px;
+    right: 0;
+    left: 1rem;
+  }
+
+  header li.head-status {
+    margin-left: 4rem;
+    top: 5rem;
   }
 
   header ul {
@@ -337,6 +340,7 @@ header .icon#heart {
 
   header a {
     padding: 0rem;
+    display: block;
   }
 
   header nav.desktop {
@@ -354,6 +358,9 @@ header .icon#heart {
   .dropdown-content {
     right: 1px;
     top: -7px;
+  }
+
+  .dropdown li a {
   }
 }
 
