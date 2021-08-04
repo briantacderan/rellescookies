@@ -48,8 +48,7 @@ a {
 
 html {
   font-family: 'phosphatesolid', sans-serif;
-  font-style: solid;
-  font-weight: 300;
+  font-weight: normal;
   font-size: 16px;
   color: #4A4A4A;
   background-color: black;
@@ -80,7 +79,7 @@ header {
   position: fixed;
   width: 100%;
   height: 4.5rem;
-  border-bottom: 3px solid darkslategray;
+  border-bottom: 2px solid white;
   box-shadow: 0 1px 1px rgba(0,0,0,0.11),
               0 2px 2px rgba(0,0,0,0.11),
               0 4px 4px rgba(0,0,0,0.11),
@@ -93,7 +92,10 @@ header {
 header h1 {
   position: absolute;
   bottom: 0;
+  top: -1.75rem;
   left: 65px;
+  color: #F1F1F1;
+  font-size: 3rem;
 }
 
 header .content {
@@ -106,7 +108,11 @@ header .content {
 header ul {
   display: flex;
   justify-content: flex-end;
-  padding-right: 1.5rem;
+  margin-right: 1rem;
+}
+
+header li {
+  font-size: 2rem;
 }
 
 header li.session-user {
@@ -115,7 +121,7 @@ header li.session-user {
   flex-direction: column-reverse;
   align-items: flex-end;
   justify-content: flex-start;
-  margin-right: 2.5rem;
+  margin-right: 1.5rem;
 }
 
 header li.session-user p {
@@ -130,21 +136,25 @@ header li.session-user a {
   display: flex;
   align-items: flex-start;
   justify-content: flex-end;
-  padding: 0.3rem;
+  padding: 0.25rem 0.5rem;
+  margin: 0;
 }
 
-header a {
-  transition-property: color;
-}
-
-header a:hover {
-  color: #BFE04C;
+header nav li a {
+  color: #F1F1F1;
+  font-size: 1.5rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 200px;
+  margin: 1rem 0;
 }
 
 header nav li a:hover {
   background-color: #BFE04C;
   color: black;
-  border-radius: 200px;
+}
+
+header a.desktop:hover:first-of-type h1 {
+  color: #BFE04C;
 }
 
 header a.mobile,
@@ -158,18 +168,21 @@ header .icon {
 }
 
 header .icon#name {
-  height: 155px;
+  height: 200px;
   position: relative;
-  right: 10px;
-  bottom: 1rem;
+  right: 0;
+  left: 6rem;
+  bottom: 0;
+  top: -0.5rem;
   filter: invert(30%) sepia(49%) saturate(1812%) hue-rotate(314deg) brightness(86%) contrast(92%);
 }
 
 header .icon#background {
   height: 80px;
-  position: relative;
-  top: 15px;
-  left: 0;
+  position: absolute;
+  top: 1rem;
+  bottom: 0;
+  left: 1rem;
   z-index: 3;
 }
 
@@ -183,57 +196,23 @@ header .icon#heart {
   }
 
   header .content {
-    height: inherit;
-  }
 
-  header ul {
-    padding-right: 0.4rem;
-  }
-
-  header nav a {
-    font-size: 1rem;
-    padding: 0.5rem 0.5rem 0.3rem;
-  }
-
-  header .icon#heart {
-    height: 1rem;
-  }
-
-  header .icon#logout {
-    height: 1.9rem;
-    padding-bottom: 0.6rem;
-    filter: invert(99%) sepia(83%) saturate(90%) hue-rotate(192deg) brightness(110%) contrast(89%);
-    margin-right: 0.3rem;
-  }
-
-  header nav.desktop {
-    display: none;
-  }
-
-  header nav.mobile {
-    display: flex;
-  }
-
-  header .icon#bars {
-    height: 20px;
-    filter: invert(99%) sepia(83%) saturate(90%) hue-rotate(192deg) brightness(110%) contrast(89%);
-  }
-
-  header .icon#heart {
-    height: 20px;
   }
 
   header h1 {
-    font-size: 1.3rem;
-    bottom: 7px;
-    left: 40px;
+    left: 1rem;
+    font-size: 2rem;
+    bottom: 0;
+    top: -1rem;
   }
 
   header .icon#name {
-    height: 100px;
-    right: 11px;
-    bottom: 7px;
+    height: 120px;
+    right: 1rem;
+    bottom: 0;
+    top: 0;
     left: 2px;
+    z-index: 5;
   }
 
   header .icon#background {
@@ -242,6 +221,56 @@ header .icon#heart {
     top: 10px;
     left: 7px;
     visibility: hidden;
+  }
+
+  header nav.desktop {
+    display: none;
+  }
+
+  header nav.mobile,
+  header a.mobile {
+    display: flex;
+  }
+
+  header ul {
+    margin-right: 0.5rem;
+  }
+
+  header nav ul li a {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+  }
+
+  header nav ul li a:hover {
+  }
+
+  header .icon#heart {
+    height: 1rem;
+  }
+
+  header .icon#logout {
+    margin-right: 0.35rem;
+    height: 1.25rem;
+    filter: invert(99%) sepia(83%) saturate(90%) hue-rotate(192deg) brightness(110%) contrast(89%);
+  }
+
+  header .icon#bars {
+    height: 20px;
+    filter: invert(99%) sepia(83%) saturate(90%) hue-rotate(192deg) brightness(110%) contrast(89%);
+  }
+
+  header .icon#logout:hover,
+  header .icon#bars:hover {
+    filter: invert(5%) sepia(2%) saturate(4805%) hue-rotate(138deg) brightness(97%) contrast(84%);
+  }
+
+  header .icon#bars:hover::selection .dropdown-content a {
+    height: 20px;
+    filter: invert(99%) sepia(83%) saturate(90%) hue-rotate(192deg) brightness(110%) contrast(89%);
+  }
+
+  header .icon#heart {
+    height: 20px;
   }
 
   .dropdown {
@@ -261,7 +290,8 @@ header .icon#heart {
     padding: 0;
     margin: 0;
     z-index: 1;
-    right: -5px;
+    right: -7px;
+    top: 3.5rem;
     box-shadow: -1px 1px 1px rgba(0,0,0,0.11),
                 -2px 2px 2px rgba(0,0,0,0.11),
                 -4px 4px 4px rgba(0,0,0,0.11),
@@ -273,6 +303,7 @@ header .icon#heart {
     color: #f1f1f1;
     text-align: center;
     background-color: #1f1c1c;
+    border-radius: 0;
     padding: 12px 16px;
     display: block;
     width: 100%;
@@ -317,12 +348,26 @@ header .icon#heart {
 
   header h1 {
     width: 40%;
-    color: #1F1C1C;
+    color: #f5cdc9;
     font-size: 1.85rem;
     opacity: 0.8;
     bottom: -5px;
     right: 0;
-    left: 1rem;
+    left: 0.5rem;
+    z-index: 2;
+  }
+
+  header .icon#name {
+    height: 120px;
+    right: 0;
+    left: -1.5rem;
+    bottom: 0;
+    top: -0.5rem;
+    z-index: 2;
+  }
+
+  header .icon#background {
+    visibility: hidden;
   }
 
   header li.head-status {
@@ -339,6 +384,10 @@ header .icon#heart {
     display: block;
   }
 
+  header a.desktop {
+    z-index: 2;
+  }
+
   header nav.desktop {
     display: none;
   }
@@ -352,11 +401,8 @@ header .icon#heart {
   }
 
   .dropdown-content {
-    right: 1px;
-    top: -7px;
-  }
-
-  .dropdown li a {
+    right: -7px;
+    top: 0.5rem;
   }
 }
 
@@ -536,18 +582,17 @@ header .icon#heart {
 
 @media only screen and (max-width: 730px) {
   #main-content {
-    top: 20rem;
+    top: 3rem;
     position: sticky;
   }
 
   #banner-section {
     position: sticky;
-    top: 4rem;
+    top: 3rem;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    border-top: 2rem solid white;
     border-bottom: 3px solid rgba(230, 230, 230, 0.65);
     box-shadow: 0 1px 1px rgba(0,0,0,0.11),
                 0 2px 2px rgba(0,0,0,0.11),
@@ -749,6 +794,10 @@ header .icon#heart {
   align-items: flex-end;
   overflow-y: scroll;
   margin-left: 1rem;
+}
+
+#bulletin-left::-webkit-scrollbar {
+  display: none;
 }
 
 #bulletin-left #post-container {
@@ -995,6 +1044,11 @@ header .icon#heart {
     background-color: #f1f1f1;
   }
 
+  #bulletin-left .post {
+    background-color: #f1f1f1;
+    opacity: 1;
+  }
+
   #bulletin-left #post-container {
     border-left: 3px solid rgba(245, 205, 201, 0.5);
     padding: 1.75rem 0;
@@ -1011,7 +1065,7 @@ header .icon#heart {
   }
 
   #bulletin-left .post {
-    background-color: rgba(245,	205, 201, 0.21);
+    background-color: rgba(270,	270, 270, 0.95);
     color: white;
     width: 50%;
     position: relative;
@@ -1033,9 +1087,9 @@ header .icon#heart {
   }
 
   #bulletin-left .post:hover {
-    background-color: rgba(245,	205, 201, 0.61);
+    background-color: rgba(245,	245, 201, 0.91);
     border-top: 1px solid darkslategray;
-    border-left: 20px solid rgba(270,	180, 180, 0.65);
+    border-left: 20px solid #BEE04C;
     border-bottom: 7px solid gray;
     border-right: 1px solid darkslategray;
     -webkit-transition: all 100ms ease-out;

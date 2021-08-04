@@ -10,7 +10,6 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'phosphate', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag 'menu', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
@@ -35,7 +34,7 @@
             <li><%= link_to "MENU", menu_path %></li>
             <li><%= link_to "ABOUT", about_path %></li>
             <li><%= link_to "CART", stripe_cart_path %></li>
-            <li>
+            <li id="heart">
               <%= link_to "https://www.instagram.com/cookiesbyrelle/" do %>
                 <%= image_tag "heart-solid.svg", id: "heart", class: "icon" %>
               <% end %>
@@ -47,19 +46,19 @@
           <ul>
             <li>
               <%- if current_user %>
-              <%= link_to destroy_session_path(current_user), method: :delete, class: "logout" do %>
+              <%= link_to destroy_session_path(current_user), method: :delete, class: "mobile logout" do %>
                 <%= image_tag "logout.svg", id: "logout", class: "icon logout" %>
               <% end %>
               <% end %>
             </li>
-            <li>
-              <%= link_to "https://www.instagram.com/cookiesbyrelle" do %>
+            <li id="heart">
+              <%= link_to "https://www.instagram.com/cookiesbyrelle", class: "mobile" do %>
                 <%= image_tag "heart-solid.svg", id: "heart", class: "icon" %>
               <% end %>
             </li>
             <div class="dropdown">
               <li>
-                <a>
+                <a class="mobile">
                   <%= image_tag "bars-solid.svg", id: "bars", class: "icon dropbtn" %>
                 </a>
               </li>

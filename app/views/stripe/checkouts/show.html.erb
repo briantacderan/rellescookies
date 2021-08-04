@@ -3,15 +3,15 @@
 <div id="cart-view-section" class="checkouts-page">
   <div id="cart-view-container" class="checkouts-container">
 
-    <article>
-      <%- if flash[:error].present? %>
-      <div id="error-explanation">
-        <p><%= flash[:error] %></p>
-      </div>
-      <% end %>
-    </article>
-
     <div id="cart-view-content" class="checkouts-content">
+      
+      <article>
+        <%- if flash[:error].present? %>
+        <div id="error-explanation">
+          <p><%= flash[:error] %></p>
+        </div>
+        <% end %>
+      </article>
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
 
