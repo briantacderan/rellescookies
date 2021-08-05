@@ -132,7 +132,7 @@ header li.session-user p {
 
 header li.session-user a {
   font-size: 0.9rem;
-  color: white;
+  color: dimgray;
   display: flex;
   align-items: flex-start;
   justify-content: flex-end;
