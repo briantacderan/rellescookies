@@ -5,7 +5,55 @@
 
     <div id="category-background">
       <div class="space" id="first"></div>
+      <div id="original-content" class="cat-content">
+        <h1 id="original" class="cat-name">original recipes</h1>
+        <%= image_tag "same-chips.png", id: "cat-one", class: "original" %>
+      </div>
+      <div id="seasonal-content" class="cat-content">
+        <h1 id="seasonal" class="cat-name">new &amp; seasonal</h1>
+        <%= image_tag "misc-chips.png", id: "cat-two", class: "seasonal" %>
+      </div>
       <div id="original" class="cat-name">
+        <div id="bulletin-left" class="bulletin-half og" style="background: url(<%= image_url 'white-stripes.svg' %>);">
+
+          <%- if flash[:success].present? %>
+          <div id="success-update" class="post">
+            <p><%= flash[:success] %></p>
+          </div>
+          <% end %>
+
+          <% @new.each_with_index do |chip, index| %>
+            <div id="post-<%= index+1 %>" class="post">
+              <div class="content">
+                <%= form_for(:item, :url => stripe_add_path) do |f| %>
+                  <div class="field hidden-field">
+                    <%= f.hidden_field :name, value: chip.name %>
+                  </div>
+                  <div class="field hidden-field">
+                    <%= f.hidden_field :menu_id, value: chip.menu_id %>
+                  </div>
+                  <div class="field hidden-field">
+                    <%= f.hidden_field :image, value: chip.image %>
+                  </div>
+                  <h4><%= chip.name %></h4>
+                  <p><%= chip.description %></p>
+                  <div class="quantity-submit">
+                    <div id="quantity-counter-<%= index+1 %>" class="field quantity-counter">
+                      <%= f.label :quantity, "QUANTITY" %>
+                      <%= f.number_field :quantity, in: 1..12, step: 1, autocomplete: 1 %>
+                    </div>
+                    <div id="submit-<%= index+1 %>" class="actions">
+                      <%= f.submit "ADD TO CART" %>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+
+        </div>
+      </div>
+      <div id="seasonal" class="cat-name">
         <div id="bulletin-left" class="bulletin-half new" style="background: url(<%= image_url 'white-stripes.svg' %>);">
 
           <%- if flash[:success].present? %>
@@ -44,50 +92,6 @@
           <% end %>
 
         </div>
-        <h1 id="original" class="cat-name">original recipes</h1>
-        <%= image_tag "same-chips.png", id: "cat-one", class: "original" %>
-      </div>
-      <div id="seasonal" class="cat-name">
-        <div id="bulletin-left" class="bulletin-half og" style="background: url(<%= image_url 'white-stripes.svg' %>);">
-
-          <%- if flash[:success].present? %>
-          <div id="success-update" class="post">
-            <p><%= flash[:success] %></p>
-          </div>
-          <% end %>
-
-          <% @og.each_with_index do |chip, index| %>
-            <div id="post-<%= index+1 %>" class="post">
-              <div class="content">
-                <%= form_for(:item, :url => stripe_add_path) do |f| %>
-                  <div class="field hidden-field">
-                    <%= f.hidden_field :name, value: chip.name %>
-                  </div>
-                  <div class="field hidden-field">
-                    <%= f.hidden_field :menu_id, value: chip.menu_id %>
-                  </div>
-                  <div class="field hidden-field">
-                    <%= f.hidden_field :image, value: chip.image %>
-                  </div>
-                  <h4><%= chip.name %></h4>
-                  <p><%= chip.description %></p>
-                  <div class="quantity-submit">
-                    <div id="quantity-counter-<%= index+1 %>" class="field quantity-counter">
-                      <%= f.label :quantity, "QUANTITY" %>
-                      <%= f.number_field :quantity, in: 1..12, step: 1, autocomplete: 1 %>
-                    </div>
-                    <div id="submit-<%= index+1 %>" class="actions">
-                      <%= f.submit "ADD TO CART" %>
-                    </div>
-                  </div>
-                <% end %>
-              </div>
-            </div>
-          <% end %>
-
-        </div>
-        <h1 class="cat-name">new &amp; seasonal</h1>
-        <%= image_tag "misc-chips.png", id: "cat-two", class: "seasonal" %>
       </div>
     </div>
 

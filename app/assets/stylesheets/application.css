@@ -1301,7 +1301,7 @@ header .icon#heart {
 /* Newsletter Section */
 #newsletter-section {
   background-color: white;
-  border-top: 50px solid #BEE04C;
+  border-top: 100px solid #BEE04C;
 }
 
 #newsletter-section h1 {
@@ -1314,7 +1314,7 @@ header .icon#heart {
 
 #newsletter-section .container {
   background-color: #f1f1f1;
-  padding: 3rem 0 10rem 0;
+  padding: 3rem 0 7rem 0;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;

@@ -13,5 +13,5 @@ Turbolinks.start()
 ActiveStorage.start()
 
 document.addEventListener("turbolinks:load", function() {
-  
+
 });

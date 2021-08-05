@@ -15,9 +15,17 @@ body {
   background-size: inherit;
   position: relative;
   overflow-y: hidden;
+  -webkit-transition: -webkit-transform 0.5s;
 }
 
-#menu-section.move {
+#menu-section.move-og {
+  -webkit-transform:translateY(-17rem);
+  -webkit-transition: -webkit-transform 0.5s;
+  height: calc(100vh + 20rem);
+  width: auto 80%;
+}
+
+#menu-section.move-new {
   -webkit-transform:translateY(-17rem);
   -webkit-transition: -webkit-transform 0.5s;
   height: calc(100vh + 20rem);
@@ -44,13 +52,15 @@ body {
   align-items: flex-start;
 }
 
-#bulletin-left {
+#bulletin-left.og,
+#bulletin-left.new {
   position: absolute;
   visibility: hidden;
   background-color: black;
 }
 
-#bulletin-left.show {
+#bulletin-left.og.show,
+#bulletin-left.new.show {
   visibility: visible;
   height: calc(100vh - 8.5rem);
   width: 100%;
@@ -84,17 +94,7 @@ h1.cat-name {
   font-size: 6rem;
 }
 
-h1#original.cat-name.move {
-  -webkit-transform:translateY(13.5rem);
-  -webkit-transition: -webkit-transform 1.25s;
-  opacity: 1;
-  color: #BEE04C;
-  text-shadow: -1px 1px 1px black,
-               -2px 2px 2px black,
-               -4px 4px 4px black;
-}
-
-#original h1 {
+h1#original {
   color: olive;
   text-shadow: -1px 0 black,
                0 1px black,
@@ -104,32 +104,68 @@ h1#original.cat-name.move {
   align-items: right;
   margin: 30% auto 60% auto;
   left: 10vw;
+  -webkit-transition: -webkit-transform 1.25s;
 }
 
-#seasonal h1 {
+h1#seasonal {
   color: white;
   right: 10vw;
+  -webkit-transition: -webkit-transform 1.25s;
+}
+
+h1#original.move {
+  -webkit-transform:translateY(13.5rem);
+  -webkit-transition: -webkit-transform 1.25s;
+  opacity: 1;
+  color: #BEE04C;
+  text-shadow: -1px 1px 1px black,
+               -2px 2px 2px black,
+               -4px 4px 4px black;
+  -webkit-text-stroke: 2px black;
+}
+
+h1#seasonal.move {
+  -webkit-transform:translateY(17.5rem);
+  -webkit-transition: -webkit-transform 1.25s;
+  opacity: 1;
+  color: pink;
+  text-shadow: -1px 1px 1px black,
+               -2px 2px 2px black,
+               -4px 4px 4px black;
+  -webkit-text-stroke: 2px black;
+}
+
+h1#original.hide {
+  -webkit-transform:translateY(-800px);
   -webkit-transition: -webkit-transform 4s;
 }
 
-#seasonal h1.hide {
+h1#seasonal.hide {
   -webkit-transform:translateY(10000px);
+  -webkit-transition: -webkit-transform 4s;
 }
 
 img.original {
   width: 100vw;
   border-bottom: solid 15px black;
   border-radius: 0 0 15% 15%;
+  -webkit-transition: -webkit-transform 4s;
 }
 
 img.seasonal {
   width: 100vw;
-  border-radius: 15% 15% 0 0;
+  border-radius: 15%;
+  -webkit-transition: -webkit-transform 4s;
+}
+
+img.original.hide {
+  -webkit-transform:translateY(-800px);
   -webkit-transition: -webkit-transform 4s;
 }
 
 img.seasonal.hide {
   -webkit-transform:translateY(10000px);
+  -webkit-transition: -webkit-transform 4s;
 }
 
 h1.cat-name {
@@ -140,26 +176,32 @@ h1.cat-name {
   display: none;
 }
 
-#original,
-#seasonal {
-  opacity: 0.2;
+#original-content,
+#seasonal-content {
+  opacity: 0.3;
   z-index: 1;
 }
 
-#original:hover,
-#seasonal:hover,
-#original:hover h1,
-#seasonal:hover h1 {
+#original-content:hover,
+#seasonal-content:hover,
+#original-content:hover h1,
+#seasonal-content:hover h1 {
   cursor: pointer;
   opacity: 1;
 }
 
-#original:hover,
-#seasonal:hover,
-#original.show,
-#seasonal.show {
+#original-content.show,
+#seasonal-content.show {
   opacity: 1;
 }
+
+#bulletin-left.hide,
+#original-content.hide,
+#seasonal-content.hide {
+  display: none;
+}
+
+#
 
 footer {
   opacity: 1;
@@ -240,13 +282,14 @@ footer a {
   }
 
   #menu-section {
-    height: calc(100vh - 6rem);
+    height: calc(100vh - 8rem);
     position: fixed;
   }
 
-  #menu-section.move {
-    -webkit-transform:translateY(-15rem);
-    height: calc(100vh + 6rem);
+  #menu-section.move-og,
+  #menu-section.move-new {
+    -webkit-transform:translateY(-17rem);
+    height: calc(100vh + 8rem);
     width: auto 80%;
     overflow-y: hidden;
   }
@@ -255,8 +298,10 @@ footer a {
     height: 100vh;
   }
 
-  #bulletin-left.show {
-    height: calc(100vh - 18.5rem);
+  #bulletin-left.new.show,
+  #bulletin-left.og.show {
+    height: calc(100vh - 17.5rem);
+    margin-top: 2rem;
   }
 
   h1.cat-name {
@@ -266,7 +311,13 @@ footer a {
   }
 
   h1#original.cat-name.move {
-    -webkit-transform:translateY(12.75rem);
+    -webkit-transform:translateY(15rem);
+    font-size: 2.25rem;
+  }
+
+  h1#seasonal.cat-name.move {
+    -webkit-transform:translateY(17rem);
+    font-size: 2rem;
   }
 
   #original,
@@ -292,6 +343,14 @@ footer a {
   img.seasonal {
     width: 100vw;
     border-radius: 15%;
+  }
+
+  footer span {
+    color: dimgray;
+  }
+
+  footer a strong {
+    color: black;
   }
 }
 
