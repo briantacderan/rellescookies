@@ -842,7 +842,6 @@ header .icon#heart {
   padding: 1rem;
   text-align: center;
   font-size: 2rem;
-  font-family: Roboto, sans-serif;
   text-shadow: -1px 0 #BEE04C, 0 1px #BEE04C,
                1px 0 #BEE04C, 0 -1px #BEE04C;
 }
