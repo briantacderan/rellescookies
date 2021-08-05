@@ -239,8 +239,24 @@ footer a {
     filter: invert(43%) sepia(0%) saturate(1%) hue-rotate(320deg) brightness(93%) contrast(89%);
   }
 
+  #menu-section {
+    height: calc(100vh - 6rem);
+    position: fixed;
+  }
+
   #menu-section.move {
     -webkit-transform:translateY(-15rem);
+    height: calc(100vh + 6rem);
+    width: auto 80%;
+    overflow-y: hidden;
+  }
+
+  #category-background {
+    height: 100vh;
+  }
+
+  #bulletin-left.show {
+    height: calc(100vh - 18.5rem);
   }
 
   h1.cat-name {
