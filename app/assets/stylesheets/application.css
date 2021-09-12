@@ -1219,7 +1219,7 @@ header .icon#heart {
   }
 }
 
-@media only screen and (min-width: 480px) {
+@media only screen and (min-width: 530px) {
   #bulletin-left .content {
     width: 100%;
     height: auto;
@@ -1239,7 +1239,7 @@ header .icon#heart {
   }
 }
 
-@media only screen and (max-width: 481px) {
+@media only screen and (max-width: 480px) {
   #bulletin-section {
     display: none;
   }
